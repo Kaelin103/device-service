@@ -1,0 +1,38 @@
+name: Build & Test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout 仓库代码
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      # 2. 设置 Node.js 环境
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # 3. 安装依赖
+      - name: Install deps
+        run: npm install
+
+      # 4. 构建 TypeScript
+      - name: Build TypeScript
+        run: npm run build
+
+      # 5. 运行单元测试
+      - name: Run unit tests
+        run: npm test
+
+      # 6. 运行覆盖率（可选，但推荐）
+      - name: Run coverage
+        run: npm run test:coverage
