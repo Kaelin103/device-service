@@ -11,28 +11,35 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Checkout 仓库代码
-      - name: Checkout repo
+      # 1. 拉取仓库代码
+      - name: Checkout 仓库
         uses: actions/checkout@v4
 
-      # 2. 设置 Node.js 环境
-      - name: Setup Node
+      # 2. 设置 Node.js 环境并启用 npm 缓存
+      - name: 设置 Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+          cache: 'npm' # 自动缓存 node_modules
 
-      # 3. 安装依赖
-      - name: Install deps
+      # 3. 检查 Node.js 和 npm 版本
+      - name: 检查 Node & NPM
+        run: |
+          node -v
+          npm -v
+
+      # 4. 安装依赖
+      - name: 安装依赖
         run: npm install
 
-      # 4. 构建 TypeScript
-      - name: Build TypeScript
+      # 5. 编译 TypeScript
+      - name: 构建 TypeScript
         run: npm run build
 
-      # 5. 运行单元测试
-      - name: Run unit tests
+      # 6. 运行单元测试
+      - name: 运行单元测试
         run: npm test
 
-      # 6. 运行覆盖率（可选，但推荐）
-      - name: Run coverage
+      # 7. 运行覆盖率（可选）
+      - name: 运行覆盖率
         run: npm run test:coverage
