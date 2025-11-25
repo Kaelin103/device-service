@@ -1,0 +1,21 @@
+{
+  "name": "device-service",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest --run",
+    "test:coverage": "vitest --coverage"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "@vitest/coverage-v8": "^4.0.14",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.14"
+  }
+}
