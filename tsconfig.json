@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "ES2020",
-    "module": "ESNext", // 改为 ESNext 保留 import/export
+    "module": "ESNext", // 保留 import/export
     "rootDir": "src",
     "outDir": "dist",
     "moduleResolution": "node",
@@ -9,6 +9,6 @@
     "strict": true,
     "skipLibCheck": true
   },
-  "include": ["src/**/*.ts"], // 只包含 src，不包含测试文件
+  "include": ["src/**/*.ts"], // 只包含源代码
   "exclude": ["node_modules", "dist", "**/*.test.ts"]
 }
