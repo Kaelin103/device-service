@@ -32,7 +32,8 @@ describe('listDevices use case', () => {
     const result = await listDevices({ deviceRepo: deviceRepo as any });
 
     expect(result.success).toBe(false);
-    if (!result.success) {
+
+    if (result.success === false) {
       expect(result.error).toBe(errorMessage);
     }
   });
